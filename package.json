@@ -1,0 +1,10 @@
+{
+  "name": "undertow-photo-gallery",
+  "version": "0.1.0",
+  "description": "A configurable browser gallery with physical prints and fluid movement",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build-standalone.cjs",
+    "test": "node --test tests/undertow.test.cjs"
+  }
+}

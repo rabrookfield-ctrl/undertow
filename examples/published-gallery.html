@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Undertow — published gallery example</title>
+  <style>body{margin:0;background:#101515}#gallery{height:100dvh}</style>
+</head>
+<body>
+  <div id="gallery"></div>
+  <script src="../src/undertow.js"></script>
+  <script>
+    // A host application supplies the published collection. No admin service is needed here.
+    const gallery = new Undertow(document.getElementById('gallery'), {
+      showControls: false,
+      showAddPhotos: false,
+      size: 100,
+      viscosity: 40,
+      strength: 62,
+      depth: 85,
+      title: 'Undertow',
+      subtitle: 'A collection to explore',
+      photos: Array.from({length:20}, (_,i)=>({
+        src: '../assets/sample-' + (i%5+1) + '.svg',
+        name: 'Sample print ' + (i+1),
+        alt: 'An abstract landscape illustration'
+      }))
+    });
+  </script>
+</body>
+</html>
