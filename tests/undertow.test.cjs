@@ -48,7 +48,7 @@ function environment() {
     cancelAnimationFrame:id=>frames.delete(id)};
   const source=fs.readFileSync(path.join(__dirname,'../src/undertow.js'),'utf8');
   // Test access is inserted only in memory; the distributed engine has no test API.
-  const instrumented=source.replace("this.version='0.1.0';", "this._test={photos:()=>photos,physics,stir};this.version='0.1.0';");
+  const instrumented=source.replace(/this\.version='[^']+';/, match => "this._test={photos:()=>photos,physics,stir};"+match);
   vm.createContext(sandbox);vm.runInContext(instrumented,sandbox);
   const mount=options=>{const host=new Host();const gallery=new sandbox.Undertow(host,options);return {host,gallery,root:host.shadowRoot};};
   return {mount,loaded,revoked,frames};

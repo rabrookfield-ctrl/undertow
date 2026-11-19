@@ -1,6 +1,6 @@
 {
   "name": "undertow-photo-gallery",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A configurable browser gallery with physical prints and fluid movement",
   "license": "MIT",
   "scripts": {

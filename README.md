@@ -6,6 +6,8 @@ Undertow is a browser gallery with no framework, build step, account system, sto
 
 ## Try it
 
+[Explore the live Natural Place gallery](https://gallery.naturalplaceblog.com) to try Undertow with a published photo collection.
+
 Open `index.html` for a sample collection and independent switches for the sliders and Add photos control. Open `undertow-standalone.html` for one self-contained file you can use with local photos. Local selections stay in the browser session; they are never uploaded or saved by Undertow.
 
 `examples/published-gallery.html` demonstrates a supplied collection with the sliders and Add photos hidden. All demo art is generic and included locally. This package contains no blog content, private transcripts, account details, or credentials.
@@ -42,6 +44,7 @@ The host may provide relative paths, remote image URLs, or a mixture of sources.
 | Option | Default | Purpose |
 | --- | --- | --- |
 | `showControls` | `true` | Show the size, viscosity, stir strength, and depth sliders. |
+| `showHint` | `true` | Show a quiet exploration hint when sliders are hidden; fade it after the first drag. |
 | `showAddPhotos` | `true` | Show the local photo picker. This picker never uploads files. |
 | `showRescatter` | `true` | Show the Rescatter button. |
 | `showHeader` | `true` | Show the title and header actions; hiding it also hides all header actions. |
@@ -54,6 +57,8 @@ The host may provide relative paths, remote image URLs, or a mixture of sources.
 | `title` | `"Undertow"` | Header title, rendered as plain text. |
 | `subtitle` | `"An unarranged collection"` | Header subtitle, rendered as plain text. |
 | `photos` | `[]` | Initial photo array. Change it later with `setPhotos` or `addPhotos`. |
+
+With sliders hidden, a small hint says “Drag to explore · Click a photo to look closer” (touch wording on phones). It stays until the first deliberate drag, then fades for the lifetime of that gallery instance. Hovering or clicking does not dismiss it. It never intercepts pointer input. Set `showHint: false` to omit it. The CSS custom property `--undertow-hint-bottom` on the host container can reserve space for a host page footer.
 
 Hiding the sliders does not reset their values or disable their effects. The visibility flags are independent and can change without reloading images or resetting the pile.
 
